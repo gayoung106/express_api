@@ -29,4 +29,18 @@ taskController.createTask = async (req, res) => {
   });
 };
 
+taskController.getTasks = (req, res) => {
+  const query = "select * from tasks";
+
+  connection.query(query, (error, results) => {
+    if (error) {
+      return res.status(500).json({ status: "fail", error: error.message });
+    }
+    return res.status(200).json({
+      status: "success",
+      data: results,
+    });
+  });
+};
+
 module.exports = taskController;

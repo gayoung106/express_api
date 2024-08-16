@@ -5,11 +5,11 @@
 // 4. 할 일 삭제하기 delete /tasks/:id
 
 const express = require("express");
-const { createTask } = require("../controllers/task.controller");
+const { createTask, getTasks } = require("../controllers/task.controller");
 
 const router = express.Router();
 
-// router.get("/", 보여주는 함수 실행)
+router.get("/", getTasks);
 router.post("/", createTask);
 // router.put("/:id", )
 // router.delete("/:id", )
